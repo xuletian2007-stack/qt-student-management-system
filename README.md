@@ -1,82 +1,69 @@
-# 个人发展规划网 (PersonalDevPlan)
+# 基于 Qt 的学生信息管理系统
 
-> 基于 Qt/C++ 的学生个人发展管理系统 — 记录学习历程、管理成就、生成简历
+## 一、项目简介
 
-## 📋 项目简介
+本项目是一个基于 Qt 开发的学生信息管理系统，采用 MVC（模型-视图-控制器）架构风格，帮助学生记录学习历程、管理成就、生成简历。
 
-帮助大学生记录和追踪四年学习历程，围绕个人成长与发展需求，对学习、能力、经历与未来目标进行记录、分析、规划与展示。
+## 二、当前完成情况
 
-**体系结构风格：MVC（模型-视图-控制器）**
+- [x] 完成项目选题
+- [x] 完成需求分析
+- [x] 完成系统功能模块划分
+- [x] 完成详细设计文档
+- [x] 完成 Qt 界面设计
+- [x] 完成核心代码编写
+- [ ] 完成测试与修改
+- [ ] 完成最终汇报 PPT
 
-## ✅ 功能完成
+## 三、小组分工
 
-- [x] 批量导入课程与成绩（CSV/JSON）
-- [x] GPA 统计分析与学期趋势图
-- [x] 成就记录（奖项、班级角色、志愿者）
-- [x] 标准简历导出
-- [x] AI 简历增强（DeepSeek API → HTML 网页）
-- [x] 数据备份与恢复
-- [x] 用户登录/注册（学生 & 管理员）
+| 成员 | MVC 角色 | 职责描述 |
+|------|---------|---------|
+| 郑润泽 | System Architect | 定义 MVC 交互协议；设计 Model/View/Controller 接口规范；确保代码耦合度低 |
+| 徐乐天 | Model (Logic) | 负责 GPA 计算模型及算法实现；处理学分与绩点的核心数学逻辑 |
+| 彭旭辉 | Model (Data) | 负责成就、角色、志愿者数据模型；实现 CRUD 逻辑及本地文件持久化 |
+| 黄耀康 | Service/Controller | 负责 AI 业务流控制；将 Model 层数据封装并调用外部 API，结果反馈给 View |
+| 蒋宇 | View & Controller | 负责 Qt 界面开发 (View)；编写信号槽逻辑响应用户操作并调用 Model |
 
-## 🏗️ 项目结构
+## 四、详细设计任务分解
 
+| 模块 | 负责人 | 当前状态 |
+|------|--------|---------|
+| 登录模块 | 蒋宇 | 已完成 |
+| 学生信息录入模块 | 徐乐天 | 已完成 |
+| 成绩查询与 GPA 统计 | 徐乐天 | 已完成 |
+| 成就记录管理 | 彭旭辉 | 已完成 |
+| 简历导出 | 徐乐天 | 已完成 |
+| AI 简历生成 | 黄耀康 | 已完成 |
+| 数据备份与恢复 | 彭旭辉 | 已完成 |
+| 界面设计 | 蒋宇 | 已完成 |
+| 架构设计与集成 | 郑润泽 | 已完成 |
+| 测试与验收 | 全员 | 进行中 |
+
+## 五、项目甘特图
+
+```mermaid
+gantt
+    title 个人发展规划网 项目进度安排
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m-%d
+
+    section 前期准备
+    项目选题与需求分析        :done, a1, 2026-04-20, 3d
+    功能模块划分              :done, a2, 2026-04-23, 2d
+
+    section 详细设计
+    系统结构设计 (MVC)        :done, b1, 2026-04-25, 3d
+    用例分析与用例图          :done, b2, 2026-04-28, 3d
+    类图与时序图设计          :done, b3, 2026-05-01, 4d
+
+    section 编码实现
+    Qt 界面搭建               :done, c1, 2026-05-02, 4d
+    Model 层开发 (成绩/成就)   :done, c2, 2026-05-04, 6d
+    Controller 层开发          :done, c3, 2026-05-08, 4d
+    AI 简历功能集成            :done, c4, 2026-05-12, 3d
+
+    section 测试与汇报
+    功能测试与修改            :active, d1, 2026-05-26, 4d
+    PPT制作与汇报准备         :d2, 2026-05-30, 3d
 ```
-├── README.md
-├── LICENSE
-├── CHANGELOG.md
-├── src/
-│   ├── PersonalDevPlan.pro    # Qt 项目文件
-│   ├── main.cpp               # 入口
-│   ├── model/                 # 数据模型层
-│   ├── view/                  # 视图层 (Qt UI)
-│   ├── controller/            # 控制器层
-│   ├── service/               # AI 服务层
-│   └── icons/                 # 图标资源
-├── docs/
-│   ├── 设计文档.md            # 完整设计文档
-│   ├── 用例图.jpeg
-│   ├── 类图.jpeg
-│   └── 时序图.png
-└── tests/
-    └── README.md              # 测试计划
-```
-
-## 🛠️ 技术栈
-
-- **语言：** C++ (C++11)
-- **框架：** Qt 5.9.1
-- **编译器：** Clang (macOS) / MinGW 32-bit (Windows)
-- **AI 服务：** DeepSeek API
-- **版本管理：** Git + GitHub
-
-## 🚀 编译运行
-
-### macOS
-```bash
-cd src
-qmake PersonalDevPlan.pro
-make
-open PersonalDevPlan.app
-```
-
-### Windows (MinGW)
-```bash
-cd src
-qmake PersonalDevPlan.pro
-mingw32-make
-release\PersonalDevPlan.exe
-```
-
-## 👥 分工
-
-| 成员 | 角色 | 职责 |
-|------|------|------|
-| 徐乐天 | System Architect | MVC 交互协议设计、接口规范 |
-| — | Model (Logic) | GPA 计算模型与算法实现 |
-| — | Model (Data) | 成就/角色数据模型、CRUD、持久化 |
-| — | Service/Controller | AI 业务流控制、API 调用、结果反馈 |
-| — | View & Controller | Qt 界面开发、信号槽逻辑 |
-
-## 📄 文档
-
-详见 [docs/设计文档.md](docs/设计文档.md)
