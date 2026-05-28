@@ -1,0 +1,20 @@
+name: Build Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  linux-build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Qt
+        run: sudo apt-get update && sudo apt-get install -y qt5-qmake qtbase5-dev qtcharts5-dev libqt5printsupport5
+      - name: Build
+        run: |
+          cd src
+          qmake PersonalDevPlan.pro
+          make -j$(nproc)
