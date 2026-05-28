@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>960</width><height>680</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>个人发展规划网</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex"><number>0</number></property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect><x>0</x><y>0</y><width>960</width><height>33</height></rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>文件(&amp;F)</string></property>
+    <addaction name="actBackup"/>
+    <addaction name="actRestore"/>
+    <addaction name="separator"/>
+    <addaction name="actExit"/>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actBackup">
+   <property name="text"><string>数据备份</string></property>
+  </action>
+  <action name="actRestore">
+   <property name="text"><string>数据恢复</string></property>
+  </action>
+  <action name="actExit">
+   <property name="text"><string>退出</string></property>
+   <property name="shortcut"><string>Ctrl+Q</string></property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,33 @@
+# Qt 构建产物
+*.o
+*.obj
+*.moc
+moc_*.cpp
+moc_*.h
+moc_predefs.h
+ui_*.h
+qrc_*.cpp
+Makefile
+*.app/
+.DS_Store
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+
+# 编译输出
+release/
+debug/
+build-*/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.log
+PersonalDevPlan.dmg
+.qmake.stash
