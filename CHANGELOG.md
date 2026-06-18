@@ -10,7 +10,7 @@
 - 标准简历导出（含证明材料路径）
 - AI 简历增强（DeepSeek API → HTML 网页）
 - 数据备份与恢复（加密/压缩）
-- macOS Windows 双平台支持
+
 
 ### 架构
 - MVC 三层分离：Model / View / Controller + Service
